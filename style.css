@@ -62,6 +62,7 @@ section h2 {
 .btn {
     margin-top: 40px;
     display: inline-block;
+    margin-left: 8em;
     padding: 1rem 2rem;
     background-color: #007BFF;
     color: #fff;
@@ -79,8 +80,13 @@ section h2 {
 #assessment {
     margin-top: 40px;
 }
+#assessment-form{
+    padding-top: 40px;
+    padding-left: 8em;
+}
 #results {
     margin-top: 40px;
+    padding-left: 8em;
 }
 /* Basic styling for footer */
 footer {

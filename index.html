@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="question">
-                    <h3>Social Media Privacy::</h3>
+                    <h3>Social Media Privacy:</h3>
                     <p>a. Have you reviewed and adjusted your privacy settings on social media platforms?</p>
                     <select id="privacy1" name="privacy1">
                         <option value="yes">Yes</option>
@@ -169,96 +169,6 @@
         <p>&copy; 2023 Cybersecurity Risk Assessment Tool</p>
     </footer>
 
-    <script>
-        // Define the scoring system for each question (adjust weights as needed)
-const questionScores = {
-    'password1': { 'yes': 2, 'no': 0 },
-    'password2': { 'frequently': 1, 'occasionally': 2, 'rarely': 3, 'no': 0 },
-    'password3': { 'yes': 2, 'no': 0 },
-    'mfa1': { 'yes': 2, 'no': 0 },
-    'mfa2': { 'yes': 2, 'no': 0 },
-    'device1': { 'yes': 2, 'no': 0 },
-    'device2': { 'yes': 2, 'no': 0 },
-    'device3': { 'yes': 2, 'no': 0 },
-    'social1': { 'yes': 2, 'no': 0 },
-    'social2': { 'yes': 2, 'no': 0 },
-    'data1': { 'yes': 2, 'no': 0 },
-    'data2': { 'yes': 2, 'no': 0 },
-    'download1': { 'yes': 2, 'no': 0 },
-    'download2': { 'yes': 2, 'no': 0 },
-    'privacy1': { 'yes': 2, 'no': 0 },
-    'privacy2': { 'yes': 2, 'no': 0 },
-};
-
-// Define category weights (if some categories are more critical than others)
-const categoryWeights = {
-    'password': 2,
-    'mfa': 1,
-    'device': 1,
-    'social': 1,
-    'data': 1,
-    'download': 1,
-    'privacy': 1,
-    // Define weights for other categories...
-};
-
-// Get all the select elements
-const selectElements = document.querySelectorAll('select');
-
-// Initialize the total score
-let totalScore = 0;
-
-// Calculate the individual scores for each question and total scores for each category
-selectElements.forEach(select => {
-    const questionId = select.id;
-    const answer = select.value;
-    const categoryName = questionId.replace(/\d/g, ''); // Extract the category name
-
-    // Calculate the individual question score
-    const questionScore = questionScores[questionId][answer];
-
-    // Add the question score to the total score
-    totalScore += questionScore * categoryWeights[categoryName];
-});
-
-// Cap the total score at 10 if it exceeds 10
-totalScore = Math.min(totalScore, 10);
-
-// Categorize the risk level
-let riskLevel;
-if (totalScore <= 3) {
-    riskLevel = 'Low Risk';
-} else if (totalScore <= 6) {
-    riskLevel = 'Moderate Risk';
-} else if (totalScore <= 9) {
-    riskLevel = 'High Risk';
-} else {
-    riskLevel = 'Critical';
-}
-
-// Display the total score and risk level on the screen
-const totalScoreElement = document.getElementById('total-score');
-totalScoreElement.textContent = `Total Score: ${totalScore}`;
-const riskLevelTextElement = document.getElementById('risk-level-text');
-riskLevelTextElement.textContent = `Risk Level: ${riskLevel}`;
-
-// Display recommendations on the screen
-const recommendationsElement = document.getElementById('recommendations');
-recommendationsElement.innerHTML = ''; // Clear previous recommendations
-
-if (riskLevel === 'Low Risk') {
-    recommendationsElement.textContent = "Great! Your cybersecurity practices are strong.";
-} else if (riskLevel === 'Moderate Risk') {
-    recommendationsElement.textContent = "You have some room for improvement. Consider these recommendations:";
-    recommendationsElement.innerHTML += '<ul><li>Recommendation 1 for Moderate Risk</li><li>Recommendation 2 for Moderate Risk</li></ul>';
-} else if (riskLevel === 'High Risk') {
-    recommendationsElement.textContent = "Your cybersecurity practices may be at risk. Take immediate action and consider these recommendations:";
-    recommendationsElement.innerHTML += '<ul><li>Recommendation 1 for High Risk</li><li>Recommendation 2 for High Risk</li><li>Recommendation 3 for High Risk</li></ul>';
-} else {
-    recommendationsElement.textContent = "Your cybersecurity practices are at a critical level of risk. Urgently address these recommendations:";
-    recommendationsElement.innerHTML += '<ul><li>Recommendation 1 for Critical Risk</li><li>Recommendation 2 for Critical Risk</li><li>Recommendation 3 for Critical Risk</li></ul>';
-}
-
-    </script>
+    <script src="calculation.js"></script>
 </body>
 </html>
