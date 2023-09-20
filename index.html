@@ -1,174 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Risk Assessment Tool</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <!-- Add Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .popup {
+            position: fixed !important;
+            top: auto !important;
+            left: auto !important;
+            bottom: -100%;
+            right: 5%;
+            max-width: 400px;
+        }
+
+        .popup-animate {
+            -webkit-animation: popup .5s ease-out .5s forwards;
+            animation: popup .5s ease-out .5s forwards;
+        }
+
+        @keyframes popup {
+            from { bottom: -100%; }
+            to { bottom: 5%; }
+        }
+
+        .popup-dismiss {
+            animation: popupDismiss .5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes popupDismiss {
+            0% { bottom: 5%; opacity: 1; }
+            100% { bottom: 25%; opacity: 0; }
+        }
+        .ad-container {
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 400px;
+            background-color: #f9f9f9;
+        }
+
+        .ad-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .message {
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 300px;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Cybersecurity Risk Assessment Tool</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#assessment">Risk Assessment</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="home">
-            <h2>Welcome to Our Cybersecurity Risk Assessment Tool</h2>
-            <p style="text-align: center;">Assess your cybersecurity practices and improve your online security.</p>
-        </section>
+    <h1>Fake Ad Demonstration</h1>
+    
+    <div class="ad-container">
+        <img src="https://imgs.search.brave.com/iWy3rsSvz4B3RKm7-av7U0Zust8kwgXj2TjPrHdht5M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9maWxl/cy5icmFpbmZhbGwu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDE2LzA0L2FyZV95/b3VfYV93aW5uZXJf/ZmVhdHVyZWRfbGFy/Z2UtNDY4eDAuanBn/Lm9wdGltYWwuanBn" alt="Fake Ad" class="ad-image">
+        <p>Click here to win a million dollars!</p>
+        <button onclick="showMessage('yes')">Click Here</button>
+        <button onclick="showMessage('no')">No Thanks</button>
+    </div>
 
-        <section id="assessment">
-            <h2>Risk Assessment Questions</h2>
-            <form id="assessment-form">
-                <div class="question">
-                    <h3>Password Security:</h3>
-                    <p>a. Do you use strong and unique passwords for your online accounts?</p>
-                    <select id="password1" name="password1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>b. How often do you change your passwords?</p>
-                    <select id="password2" name="password2">
-                        <option value="frequently">Frequently</option>
-                        <option value="occasionally">Occasionally</option>
-                        <option value="rarely">Rarely</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>c. Do you use a password manager to store and generate complex passwords?</p>
-                    <select id="password3" name="password3">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
+    <div id="result" class="message"></div>
 
-                <div class="question">
-                    <h3>Multi-Factor Authentication (MFA):</h3>
-                    <p>a. Do you enable multi-factor authentication (MFA) wherever possible?</p>
-                    <select id="mfa1" name="mfa1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>b. Are you aware of the types of MFA available (e.g., SMS codes, authenticator apps, hardware tokens)?</p>
-                    <select id="mfa2" name="mfa2">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
+    <script>
+        function showMessage(answer) {
+            const resultElement = document.getElementById('result');
 
-                <div class="question">
-                    <h3>Device Security:</h3>
-                    <p>a. Do you keep your computer, smartphone, and other devices up to date with the latest security patches and updates?</p>
-                    <select id="device1" name="device1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>b. Do you use security software (e.g., antivirus) on your devices?</p>
-                    <select id="device2" name="device2">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>c.  Is your smartphone protected with a PIN, password, or biometric authentication?</p>
-                    <select id="device3" name="device3">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
+            if (answer === 'yes') {
+                resultElement.innerHTML = "<p>Haha, I knew you were too smart to fall for this!</p>";
+            }
+            else if (answer === 'no') {
+                resultElement.innerHTML = "<p>You declined our offer so you deserve a virus :)</p>";
+            } else {
+                resultElement.innerHTML = "<p>Good choice! Always be cautious when clicking on ads.</p>";
+            }
+        }
+    </script>
 
-                <div class="question">
-                    <h3>Social Engineering Awareness:</h3>
-                    <p>a. Are you cautious about sharing personal information online or over the phone?</p>
-                    <select id="social1" name="social1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
+    <div class="popup">
+        <div class="card horizontal z-depth-4">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h4>Remove Annoying Pop-ups</h4>
+                    <p>Remove them instantly and protect your browser!<br>
+                    <small>apple.com</small></p>
                 </div>
-                <div class="question">
-                    <p>b. Do you know how to recognize phishing emails and scam calls?</p>
-                    <select id="social2" name="social2">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
+                <div class="card-action">
+                    <a class="right btn waves-effect blue" href="#" onclick="showMessage('yes')">Yes Please</a>
+                    <a class="right btn-flat waves-effect blue-text" href="#" onclick="showMessage('no')">No Thanks</a>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        let popup = document.querySelector('.popup');
 
-                <div class="question">
-                    <h3>Data Backup:</h3>
-                    <p>a. Do you regularly back up your important data and files?</p>
-                    <select id="data1" name="data1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>b. How often do you test your backups to ensure they can be restored?</p>
-                    <select id="data2" name="data2">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
+        // Function to show the popup
+        function showPopup() {
+            popup.classList.remove('popup-dismiss');
+            popup.classList.remove('popup-animate');
+            setTimeout(function () {
+                popup.classList.add('popup-animate');
+            }, 0);
+        }
 
-                <div class="question">
-                    <h3>Software and App Downloads:</h3>
-                    <p>a. Do you only download software and apps from reputable sources (e.g., official app stores)?</p>
-                    <select id="download1" name="download1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>b. Are you cautious about granting permissions to apps on your devices?</p>
-                    <select id="download2" name="download2">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
+        // Automatically show the popup after 3 seconds
+        setTimeout(showPopup, 3000);
 
-                <div class="question">
-                    <h3>Social Media Privacy:</h3>
-                    <p>a. Have you reviewed and adjusted your privacy settings on social media platforms?</p>
-                    <select id="privacy1" name="privacy1">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="question">
-                    <p>b. Do you limit the amount of personal information you share publicly on social media?</p>
-                    <select id="privacy2" name="privacy2">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <!-- Add more questions here -->
-            </form>
-            <button id="calculate-button" class="btn">Calculate Risk Score</button>
-        </section>
-
-        <section id="results">
-            <h2>Your Risk Assessment Results</h2>
-            <p id="total-score">Total Score: -</p>
-            <p id="risk-level-text">Risk Level: -</p>
-            <p id="recommendations">Based on your assessment, here are some recommendations:</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Cybersecurity Risk Assessment Tool</p>
-    </footer>
-
-    <script src="calculation.js"></script>
+        // Function listening for Click on Add Popup
+        document.querySelector('.popup').addEventListener('click', function (e) {
+            if (e.target.innerText === 'YES PLEASE') {
+                // Use Materialize toast to display a message
+                M.toast({ html: 'You have made a mistake my friend', classes: 'red' });
+            } else if (e.target.innerText === 'NO THANKS') {
+                M.toast({ html: 'HAHA, why would you think it would work', classes: 'red' });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Risk Assessment Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cybersecurity Risk Assessment Tool</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#assessment">Risk Assessment</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Welcome to Our Cybersecurity Risk Assessment Tool</h2>
+            <p style="text-align: center;">Assess your cybersecurity practices and improve your online security.</p>
+        </section>
+
+        <section id="assessment">
+            <h2>Risk Assessment Questions</h2>
+            <form id="assessment-form">
+                <div class="question">
+                    <h3>Password Security:</h3>
+                    <p>a. Do you use strong and unique passwords for your online accounts?</p>
+                    <select id="password1" name="password1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. How often do you change your passwords?</p>
+                    <select id="password2" name="password2">
+                        <option value="frequently">Frequently</option>
+                        <option value="occasionally">Occasionally</option>
+                        <option value="rarely">Rarely</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>c. Do you use a password manager to store and generate complex passwords?</p>
+                    <select id="password3" name="password3">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <h3>Multi-Factor Authentication (MFA):</h3>
+                    <p>a. Do you enable multi-factor authentication (MFA) wherever possible?</p>
+                    <select id="mfa1" name="mfa1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. Are you aware of the types of MFA available (e.g., SMS codes, authenticator apps, hardware tokens)?</p>
+                    <select id="mfa2" name="mfa2">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <h3>Device Security:</h3>
+                    <p>a. Do you keep your computer, smartphone, and other devices up to date with the latest security patches and updates?</p>
+                    <select id="device1" name="device1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. Do you use security software (e.g., antivirus) on your devices?</p>
+                    <select id="device2" name="device2">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>c.  Is your smartphone protected with a PIN, password, or biometric authentication?</p>
+                    <select id="device3" name="device3">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <h3>Social Engineering Awareness:</h3>
+                    <p>a. Are you cautious about sharing personal information online or over the phone?</p>
+                    <select id="social1" name="social1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. Do you know how to recognize phishing emails and scam calls?</p>
+                    <select id="social2" name="social2">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <h3>Data Backup:</h3>
+                    <p>a. Do you regularly back up your important data and files?</p>
+                    <select id="data1" name="data1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. How often do you test your backups to ensure they can be restored?</p>
+                    <select id="data2" name="data2">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <h3>Software and App Downloads:</h3>
+                    <p>a. Do you only download software and apps from reputable sources (e.g., official app stores)?</p>
+                    <select id="download1" name="download1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. Are you cautious about granting permissions to apps on your devices?</p>
+                    <select id="download2" name="download2">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <h3>Social Media Privacy:</h3>
+                    <p>a. Have you reviewed and adjusted your privacy settings on social media platforms?</p>
+                    <select id="privacy1" name="privacy1">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <p>b. Do you limit the amount of personal information you share publicly on social media?</p>
+                    <select id="privacy2" name="privacy2">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <!-- Add more questions here -->
+            </form>
+            <button id="calculate-button" class="btn">Calculate Risk Score</button>
+        </section>
+
+        <section id="results">
+            <h2>Your Risk Assessment Results</h2>
+            <p id="total-score">Total Score: -</p>
+            <p id="risk-level-text">Risk Level: -</p>
+            <p id="recommendations">Based on your assessment, here are some recommendations:</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Cybersecurity Risk Assessment Tool</p>
+    </footer>
+
+    <script src="calculation.js"></script>
+</body>
+</html>
